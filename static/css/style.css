@@ -1,0 +1,118 @@
+/*
+ * 米家设备控制台 - 自定义样式
+ * Tailwind CSS 已通过 CDN 引入，此处仅补充自定义样式
+ */
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* 设备卡片悬停动效 */
+.device-card {
+    transition: all 0.2s ease;
+}
+
+.device-card:hover {
+    transform: translateY(-2px);
+}
+
+/* 弹窗动画 */
+#controlModal:not(.hidden) > div:last-child {
+    animation: modalIn 0.2s ease;
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ====== 夜间模式（通过 body.dark-mode 类切换） ======
+ * Tailwind CDN 不支持 darkMode: 'class' 配置，
+ * 这里手动定义夜间模式的颜色覆盖，覆盖范围与日间模式对应
+ */
+body.dark-mode {
+    background-color: #0f172a; /* slate-900 */
+    color: #e2e8f0;            /* slate-200 */
+}
+
+/* 顶部栏 */
+body.dark-mode .top-header {
+    background-color: #1e293b;       /* slate-800 */
+    border-bottom-color: #334155;    /* slate-700 */
+    color: #e2e8f0;
+}
+body.dark-mode .top-header .text-gray-800 { color: #f1f5f9; }
+body.dark-mode .top-header .text-gray-700 { color: #cbd5e1; }
+body.dark-mode .top-header .text-gray-600 { color: #94a3b8; }
+
+/* 左侧栏 */
+body.dark-mode .sidebar-bar {
+    background-color: #1e293b;
+    border-right-color: #334155;
+}
+
+/* 页面区域背景 */
+body.dark-mode main { color: #e2e8f0; }
+body.dark-mode .text-gray-800 { color: #f1f5f9 !important; }
+body.dark-mode .text-gray-700 { color: #cbd5e1 !important; }
+body.dark-mode .text-gray-600 { color: #94a3b8 !important; }
+body.dark-mode .text-gray-500 { color: #64748b !important; }
+body.dark-mode .text-gray-400 { color: #475569 !important; }
+
+/* 设备卡片 */
+body.dark-mode .device-card {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+body.dark-mode .device-card:hover {
+    border-color: #4f46e5; /* indigo-600 */
+}
+
+/* 设置页面 section 卡片 */
+body.dark-mode #settingsPage > section {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+/* 弹窗 */
+body.dark-mode #controlModal .relative.bg-white,
+body.dark-mode #controlModal .bg-white {
+    background-color: #1e293b;
+}
+
+/* 输入框/下拉框 */
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    border-color: #334155;
+}
+body.dark-mode input[type="radio"] + div {
+    border-color: #334155 !important;
+}
+
+/* Toast 文字颜色保持白色 */
+body.dark-mode #toastContainer .text-white { color: #ffffff !important; }
+
